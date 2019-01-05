@@ -5,33 +5,38 @@
 return [
     // Use for styling the menu
     "class" => "my-navbar",
- 
+
     // Here comes the menu items/structure
     "items" => [
         [
-            "text" => "Hem",
+            "text" => "Home",
             "url" => "",
-            "title" => "Första sidan, börja här.",
+            "title" => "Kaffekompaniet",
         ],
         [
-            "text" => "Redovisning",
-            "url" => "redovisning",
-            "title" => "Redovisningstexter från kursmomenten.",
+            "text" => "Questions",
+            "url" => "question",
+            "title" => "Question forum",
         ],
         [
-            "text" => "Om",
-            "url" => "om",
-            "title" => "Om denna webbplats.",
+            "text" => "Tags",
+            "url" => "tags",
+            "title" => "Tagged questions",
         ],
         [
-            "text" => "Styleväljare",
-            "url" => "style",
-            "title" => "Välj stylesheet.",
+            "text" => "Users",
+            "url" => "user",
+            "title" => "Login and overview",
         ],
         [
-            "text" => "Verktyg",
-            "url" => "verktyg",
-            "title" => "Verktyg och möjligheter för utveckling.",
+            "text" => "Profile",
+            "url" => "user/profile",
+            "title" => "Profile overview",
+        ],
+        [
+            "text" => "About",
+            "url" => "about",
+            "title" => "Om Kaffekompaniet",
         ],
     ],
 ];

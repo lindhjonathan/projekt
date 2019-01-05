@@ -1,1 +1,1 @@
-Copyright år och ditt namn samt diverse länkar som du finner relevanta.
+&copy; 2018 av Jonathan Lindh, alla och inga rättigheter reserverade.

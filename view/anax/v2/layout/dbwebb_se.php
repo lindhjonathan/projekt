@@ -142,50 +142,6 @@ $route = "route-" . str_replace("/", "-", $di->get("request")->getRoute());
 
 
 
-<!-- flash -->
-<?php if (regionHasContent("flash")) : ?>
-<div class="outer-wrap outer-wrap-flash">
-    <div class="inner-wrap inner-wrap-flash">
-        <div class="row">
-            <div class="region-flash">
-                <?php renderRegion("flash") ?>
-            </div>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
-
-
-
-<!-- breadcrumb -->
-<?php if (regionHasContent("breadcrumb")) : ?>
-<div class="outer-wrap outer-wrap-breadcrumb">
-    <div class="inner-wrap inner-wrap-breadcrumb">
-        <div class="row">
-            <div class="region-breadcrumb">
-                <?php renderRegion("breadcrumb") ?>
-            </div>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
-
-
-
-<!-- flash message -->
-<?php if (regionHasContent("flash-message")) : ?>
-<div class="outer-wrap outer-wrap-flash-message">
-    <div class="inner-wrap inner-wrap-flash-message">
-        <div class="row">
-            <div class="region-flash-message">
-                <?php renderRegion("flash-message") ?>
-            </div>
-        </div>
-    </div>
-</div>
-<?php endif; ?>
-
-
 
 <!-- columns-above -->
 <?php if (regionHasContent("columns-above")) : ?>
