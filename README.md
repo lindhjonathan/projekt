@@ -6,6 +6,7 @@ Code and build Status
 [![Build Status](https://travis-ci.com/lindhjonathan/projekt.svg?branch=master)](https://travis-ci.com/lindhjonathan/projekt)
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/lindhjonathan/projekt/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/lindhjonathan/projekt/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/lindhjonathan/projekt/badges/build.png?b=master)](https://scrutinizer-ci.com/g/lindhjonathan/projekt/build-status/master)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/lindhjonathan/projekt/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 
 Table of content

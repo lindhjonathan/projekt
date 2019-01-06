@@ -12,7 +12,7 @@ class Gravatar
      * calls gravatar with email
      *
      * @param string email
-     * @return array
+     * @return string
      */
     public function getGravatar($email) : string
     {
