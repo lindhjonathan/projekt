@@ -28,7 +28,7 @@ class PostQuestionForm extends FormModel
                 "id" => __CLASS__,
             ],
             [
-                "user_id" => [
+                "userId" => [
                     "type"        => "hidden",
                     "value"       => $user->id,
                 ],
@@ -63,14 +63,14 @@ class PostQuestionForm extends FormModel
     public function callbackSubmit()
     {
         // Get values from the submitted form
-        $user_id   = $this->form->value("user_id");
+        $userId    = $this->form->value("userId");
         $content   = $this->form->value("question");
         $tags      = $this->form->value("tags");
 
         // Save to database
         $question = new Question();
         $question->setDb($this->di->get("dbqb"));
-        $question->user_id = $user_id;
+        $question->userId = $userId;
         $question->content = $content;
         $question->tags = $tags;
 
@@ -78,7 +78,7 @@ class PostQuestionForm extends FormModel
             $question->save();
         } catch (Exception $e) {
             $this->form->rememberValues();
-            $this->form->addOutput("Acronym already exists.");
+            $this->form->addOutput("An error occured" . $e);
             return false;
         }
 

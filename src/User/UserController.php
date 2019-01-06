@@ -54,8 +54,8 @@ class UserController implements ContainerInjectableInterface
 
         $page->add("user/crud/users", [
             "items" => $user->findAll(),
-            "active_user" => $this->checker->loginStatus($this->di),
-            "active_user_id" => $this->checker->getUserId($this->di),
+            "activeUser" => $this->checker->loginStatus($this->di),
+            "activeUserId" => $this->checker->getUserId($this->di),
         ]);
 
         return $page->render([
@@ -78,7 +78,7 @@ class UserController implements ContainerInjectableInterface
 
         $page->add("user/crud/login", [
             "content" => $form->getHTML(),
-            "user_logged_in" => $this->checker->loginStatus($this->di),
+            "userLoggedIn" => $this->checker->loginStatus($this->di),
         ]);
 
         return $page->render([
@@ -116,6 +116,16 @@ class UserController implements ContainerInjectableInterface
      */
     public function updateAction(int $id) : object
     {
+        if ($this->checker->loginStatus($this->di) == null) {
+            $page = $this->di->get("page");
+
+            $page->add("user/crud/landing", [
+            ]);
+
+            return $page->render([
+                "title" => "Log in/Create User",
+            ]);
+        }
         $page = $this->di->get("page");
         $form = new UpdateUserForm($this->di, $id);
         $form->check();
@@ -156,7 +166,7 @@ class UserController implements ContainerInjectableInterface
         $user = new User();
         $user->setDb($this->di->get("dbqb"));
         $user->find("id", $id);
-        $profile_picture = $this->gravatar->getGravatar($user->email);
+        $profilePicture = $this->gravatar->getGravatar($user->email);
 
         $questions = new Question();
         $questions->setDb($this->di->get("dbqb"));
@@ -165,9 +175,9 @@ class UserController implements ContainerInjectableInterface
 
         $page->add("user/crud/profile", [
             "info" => $user,
-            "profile_picture" => $profile_picture,
-            "active_user" => $this->checker->loginStatus($this->di),
-            "active_user_id" => $this->checker->getUserId($this->di),
+            "profilePicture" => $profilePicture,
+            "activeUser" => $this->checker->loginStatus($this->di),
+            "activeUserId" => $this->checker->getUserId($this->di),
             "questions" => $questions->findAll(),
             "answers" => $answers->findAll(),
         ]);
@@ -186,9 +196,9 @@ class UserController implements ContainerInjectableInterface
     public function logoutAction() : object
     {
         $session = $this->di->get("session");
-        $session->set("user_logged_in", false);
-        $session->delete("active_user");
-        $session->delete("active_user_id");
+        $session->set("userLoggedIn", false);
+        $session->delete("activeUser");
+        $session->delete("activeUserId");
         $page = $this->di->get("page");
 
         $page->add("user/crud/logout", [

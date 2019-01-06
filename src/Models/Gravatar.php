@@ -20,8 +20,8 @@ class Gravatar
         $default = "https://novare.se/wp-content/uploads/2017/04/blank-profile-picture-973460_960_720.png";
         $size = 40;
 
-        $grav_url = $url . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
+        $gravUrl = $url . md5(strtolower(trim($email))) . "?d=" . urlencode($default) . "&s=" . $size;
 
-        return $grav_url;
+        return $gravUrl;
     }
 }

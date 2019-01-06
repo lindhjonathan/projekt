@@ -16,15 +16,12 @@ use Jodn14\User\User;
 use Jodn14\Question\Comment;
 use Jodn14\Question\Answer;
 
-
 /**
  * A sample controller to show how a controller class can be implemented.
  */
 class QuestionController implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
-
-
 
     /**
      * @var gravatar Gravatar model for profile picture
@@ -58,7 +55,7 @@ class QuestionController implements ContainerInjectableInterface
 
         $page->add("question/questions", [
             "items" => $question->findAll(),
-            "active_user" => $this->checker->loginStatus($this->di),
+            "activeUser" => $this->checker->loginStatus($this->di),
         ]);
 
         return $page->render([
@@ -75,11 +72,21 @@ class QuestionController implements ContainerInjectableInterface
      */
     public function postAction() : object
     {
+        if ($this->checker->loginStatus($this->di) == null) {
+            $page = $this->di->get("page");
+
+            $page->add("user/crud/landing", [
+            ]);
+
+            return $page->render([
+                "title" => "Log in/Create User",
+            ]);
+        }
         $page = $this->di->get("page");
         $session = $this->di->get("session");
         $user = new User();
         $user->setDb($this->di->get("dbqb"));
-        $user->findById($session->get("active_user_id"));
+        $user->findById($session->get("activeUserId"));
 
         $form = new PostQuestionForm($this->di, $user);
         $form->check();
@@ -108,7 +115,7 @@ class QuestionController implements ContainerInjectableInterface
 
         $asker = new User();
         $asker->setDb($this->di->get("dbqb"));
-        $asker->findById($question->user_id);
+        $asker->findById($question->userId);
 
         $users = new User();
         $users->setDb($this->di->get("dbqb"));
@@ -140,6 +147,16 @@ class QuestionController implements ContainerInjectableInterface
      */
     public function answerAction(int $id) : object
     {
+        if ($this->checker->loginStatus($this->di) == false) {
+            $page = $this->di->get("page");
+
+            $page->add("user/crud/landing", [
+            ]);
+
+            return $page->render([
+                "title" => "Log in/Create User",
+            ]);
+        }
         $page = $this->di->get("page");
         $session = $this->di->get("session");
 
@@ -147,7 +164,7 @@ class QuestionController implements ContainerInjectableInterface
         $question->setDb($this->di->get("dbqb"));
         $question->findById($id);
 
-        $form = new PostAnswerForm($this->di, $session->get("active_user_id"), $id);
+        $form = new PostAnswerForm($this->di, $session->get("activeUserId"));
         $form->check();
 
         $page->add("question/answer", [
@@ -169,13 +186,21 @@ class QuestionController implements ContainerInjectableInterface
     public function acommentAction(int $id) : object
     {
         $page = $this->di->get("page");
-        $session = $this->di->get("session");
+
+        if ($this->checker->loginStatus($this->di) == null) {
+            $page->add("user/crud/landing", [
+            ]);
+
+            return $page->render([
+                "title" => "Log in/Create User",
+            ]);
+        }
 
         $answer = new Answer();
         $answer->setDb($this->di->get("dbqb"));
         $answer->findById($id);
 
-        $form = new PostAnswerCommentForm($this->di, $session->get("active_user_id"), $id);
+        $form = new PostAnswerCommentForm($this->di, $id);
         $form->check();
 
         $page->add("question/acomment", [
@@ -197,13 +222,21 @@ class QuestionController implements ContainerInjectableInterface
     public function qcommentAction(int $id) : object
     {
         $page = $this->di->get("page");
-        $session = $this->di->get("session");
+
+        if ($this->checker->loginStatus($this->di) == null) {
+            $page->add("user/crud/landing", [
+            ]);
+
+            return $page->render([
+                "title" => "Log in/Create User",
+            ]);
+        }
 
         $question = new Question();
         $question->setDb($this->di->get("dbqb"));
         $question->findById($id);
 
-        $form = new PostQuestionCommentForm($this->di, $session->get("active_user_id"), $id);
+        $form = new PostQuestionCommentForm($this->di, $id);
         $form->check();
 
         $page->add("question/qcomment", [

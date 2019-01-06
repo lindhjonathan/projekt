@@ -112,7 +112,7 @@ class UpdateUserForm extends FormModel
         $passwordAgain = $this->form->value("password-again");
 
         // Check password matches
-        if ($password !== $passwordAgain ) {
+        if ($password !== $passwordAgain) {
             $this->form->rememberValues();
             $this->form->addOutput("Password did not match.");
             return false;
@@ -132,30 +132,4 @@ class UpdateUserForm extends FormModel
         $this->form->addOutput("User was updated.");
         return true;
     }
-
-
-
-    // /**
-    //  * Callback what to do if the form was successfully submitted, this
-    //  * happen when the submit callback method returns true. This method
-    //  * can/should be implemented by the subclass for a different behaviour.
-    //  */
-    // public function callbackSuccess()
-    // {
-    //     $this->di->get("response")->redirect("user")->send();
-    //     //$this->di->get("response")->redirect("user/update/{$user->id}");
-    // }
-
-
-
-    // /**
-    //  * Callback what to do if the form was unsuccessfully submitted, this
-    //  * happen when the submit callback method returns false or if validation
-    //  * fails. This method can/should be implemented by the subclass for a
-    //  * different behaviour.
-    //  */
-    // public function callbackFail()
-    // {
-    //     $this->di->get("response")->redirectSelf()->send();
-    // }
 }

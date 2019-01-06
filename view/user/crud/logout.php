@@ -1,5 +1,6 @@
 <?php
 namespace Anax\View;
+
 ?>
 
 <p>User was successfully logged out.</p>

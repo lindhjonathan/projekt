@@ -15,7 +15,7 @@ foreach ($questions as $question) {
 $countedTags = array_count_values($allTags);
 ?>
 
-<h2>All Tags</h2>
+<h1>All Tags</h1>
 
 <ul class="liststyle">
 <?php foreach ($countedTags as $key => $value) :

@@ -20,7 +20,7 @@ class Answer extends ActiveRecordModel
      * @var integer $id primary key auto incremented.
      */
     public $id;
-    public $user_id;
-    public $question_id;
+    public $userId;
+    public $questionId;
     public $content;
 }

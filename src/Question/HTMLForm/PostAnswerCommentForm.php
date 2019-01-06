@@ -21,23 +21,23 @@ class PostAnswerCommentForm extends FormModel
      *
      * @param Psr\Container\ContainerInterface $di a service container
      */
-    public function __construct(ContainerInterface $di, $parent_id)
+    public function __construct(ContainerInterface $di, $parentId)
     {
         parent::__construct($di);
-        $id = $this->di->get("session")->get("active_user_id");
+        $id = $this->di->get("session")->get("activeUserId");
         $this->form->create(
             [
                 "id" => __CLASS__,
             ],
             [
-                "user_id" => [
+                "userId" => [
                     "type"        => "hidden",
                     "value"       => "$id"
                 ],
 
-                "answer_id" => [
+                "answerId" => [
                     "type"        => "hidden",
-                    "value"       => "$parent_id",
+                    "value"       => "$parentId",
                 ],
 
                 "comment" => [
@@ -64,16 +64,16 @@ class PostAnswerCommentForm extends FormModel
     public function callbackSubmit()
     {
         // Get values from the submitted form
-        $user_id       = $this->form->value("user_id");
-        $answer_id     = $this->form->value("answer_id") ?? null;
-        $content       = $this->form->value("comment");
+        $userId       = $this->form->value("userId");
+        $answerId     = $this->form->value("answerId") ?? null;
+        $content      = $this->form->value("comment");
 
         // Save to database
         $comment = new Comment();
         $comment->setDb($this->di->get("dbqb"));
-        $comment->user_id = $user_id;
-        $comment->question_id = null;
-        $comment->answer_id = $answer_id;
+        $comment->userId = $userId;
+        $comment->questionId = null;
+        $comment->answerId = $answerId;
         $comment->content = $content;
 
         try {

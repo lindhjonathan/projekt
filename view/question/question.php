@@ -23,7 +23,7 @@ $urlToQuestionComment = url("question/qcomment/$question->id");
 endif;
 ?>
 
-<h2>Question by <?= $asker->acronym ?></h2>
+<h1>Question asked by <?= $asker->acronym ?></h1>
 
 <div class="objectCell">
     <table class="imagefield">
@@ -47,10 +47,10 @@ endif;
     </div>
 </div>
 <?php foreach ($comments as $comment) : ?>
-    <?php if ($question->id == $comment->question_id) : ?>
+    <?php if ($question->id == $comment->questionId) : ?>
         <div class="objectCell comment">
         <?php foreach ($users as $user) :
-            if ($user->id == $comment->user_id) : ?>
+            if ($user->id == $comment->userId) : ?>
                 <table class="imagefield">
                     <td class="tablerow">
                         <img style="margin: 4px; min-width: 32px;" src="<?= $gravatar->getGravatar($user->email) ?>" alt="User Picture" width="32" height="32">
@@ -67,10 +67,10 @@ endif;
 
 <?php if ($answers) : ?>
     <?php foreach ($answers as $answer) : ?>
-        <?php if ($answer->question_id == $question->id) : ?>
+        <?php if ($answer->questionId == $question->id) : ?>
             <div class="objectCell answer">
             <?php foreach ($users as $user) :
-                if ($user->id == $answer->user_id) : ?>
+                if ($user->id == $answer->userId) : ?>
                     <table class="imagefield">
                         <td class="tablerow">
                             <img style="margin: 4px;" src="<?= $gravatar->getGravatar($user->email) ?>" alt="User Picture" width="32" height="32">
@@ -78,7 +78,7 @@ endif;
                         <td class="tablerow"><p>Answered: </p></td>
                 <?php endif; ?>
             <?php endforeach; ?>
-            <?php if ($answer->question_id == $question->id) : ?>
+            <?php if ($answer->questionId == $question->id) : ?>
                     <td class="tablerow"><p><?= $this->di->get("textfilter")->markdown($answer->content); ?></p></td>
                 </table>
             <?php endif; ?>
@@ -88,10 +88,10 @@ endif;
             </div>
 
             <?php foreach ($comments as $comment) : ?>
-                <?php if ($answer->id == $comment->answer_id) : ?>
+                <?php if ($answer->id == $comment->answerId) : ?>
                     <div class="objectCell comment">
                     <?php foreach ($users as $user) :
-                        if ($user->id == $comment->user_id) : ?>
+                        if ($user->id == $comment->userId) : ?>
                             <table class="imagefield">
                                 <td class="tablerow">
                                     <img style="margin: 4px; min-width: 32px;" src="<?= $gravatar->getGravatar($user->email) ?>" alt="User Picture" width="32" height="32">

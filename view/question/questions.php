@@ -9,7 +9,8 @@ $items = isset($items) ? $items : null;
 $urlToPost = url("question/post");
 $urlToQuestion = url("question");
 
-?><h2>Questions</h2>
+?>
+<h1>Questions</h1>
 
 <?php if (!$items) : ?>
     <p>There are no questions posted on the website :(.</p>
@@ -20,14 +21,12 @@ $urlToQuestion = url("question");
     <?php
     return;
 endif;
-?>
-<div class="box">
-    <?php foreach ($items as $item) : ?>
-    <div class="questionCell">
-        <a class="nostyle" href="<?= url("question/question/{$item->id}"); ?>"><?= $item->content ?></a>
-    </div>
-    <?php endforeach; ?>
+
+foreach ($items as $item) : ?>
+<div class="questionCell">
+    <a class="nostyle" href="<?= url("question/question/{$item->id}"); ?>"><?= $item->content ?></a>
 </div>
+<?php endforeach; ?>
 <p>
     <a href="<?= $urlToPost ?>"><button style="margin-left: 0;">Post a new Question</button></a>
 </p>

@@ -10,9 +10,9 @@
 DROP TABLE IF EXISTS Answer;
 CREATE TABLE Answer (
     "id" INTEGER PRIMARY KEY NOT NULL,
-    "user_id" INTEGER NOT NULL,
-    "question_id" INTEGER NOT NULL,
+    "userId" INTEGER NOT NULL,
+    "questionId" INTEGER NOT NULL,
     "content" TEXT,
-    FOREIGN KEY(user_id) REFERENCES User(id),
-    FOREIGN KEY(question_id) REFERENCES Question(id)
+    FOREIGN KEY(userId) REFERENCES User(id),
+    FOREIGN KEY(questionId) REFERENCES Question(id)
 );

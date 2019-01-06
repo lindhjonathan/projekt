@@ -20,7 +20,7 @@ class Question extends ActiveRecordModel
      * @var integer $id primary key auto incremented.
      */
     public $id;
-    public $user_id;
+    public $userId;
     public $content;
     public $tags;
 }

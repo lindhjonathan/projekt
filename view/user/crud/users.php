@@ -4,14 +4,14 @@ namespace Anax\View;
 
 // Gather incoming variables and use default values if not set
 $items = isset($items) ? $items : null;
-$active_user = isset($active_user) ? $active_user : null;
-$active_user_id = isset($active_user_id) ? $active_user_id : null;
+$activeUser = isset($activeUser) ? $activeUser : null;
+$activeUserId = isset($activeUserId) ? $activeUserId : null;
 
 
 // Create urls for navigation
 $urlToCreate = url("user/create");
 $urlToLogin = url("user/login");
-$urlToProfile = url("user/profile/$active_user_id");
+$urlToProfile = url("user/profile/$activeUserId");
 
 ?><h1>Users</h1>
 
@@ -27,11 +27,12 @@ $urlToProfile = url("user/profile/$active_user_id");
 endif;
 ?>
 
-<?php if ($active_user == true) : ?>
+<?php if ($activeUser == true) : ?>
     <a href="<?= $urlToProfile ?>"><button>Your Profile</button></a>
 <?php else : ?>
     <p>
         <a href="<?= $urlToLogin ?>"><button>Log in</button></a>
+        <a href="<?= $urlToCreate ?>"><button>Create new User</button></a>
     </p>
 <?php endif; ?>
 <table id="table1">

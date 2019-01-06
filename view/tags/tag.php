@@ -15,7 +15,7 @@ foreach ($questions as $question) {
 
 ?>
 
-<h2>Questions related to '#<?= $tag ?>'</h2>
+<h1>Questions related to '#<?= $tag ?>'</h1>
 <?php foreach ($validQuestions as $question) : ?>
 <div class="questionCell">
     <a class="nostyle" href="<?= url("question/question/{$question->id}"); ?>"><?= $question->content ?></a>

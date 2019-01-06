@@ -19,8 +19,8 @@ class Comment extends ActiveRecordModel
      *
      */
     public $id;
-    public $user_id;
-    public $question_id;
-    public $answer_id;
+    public $userId;
+    public $questionId;
+    public $answerId;
     public $content;
 }

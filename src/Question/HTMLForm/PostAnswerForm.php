@@ -23,18 +23,18 @@ class PostAnswerForm extends FormModel
     public function __construct(ContainerInterface $di, $user, $question)
     {
         parent::__construct($di);
-        // $id = $this->di->get("session")->get($active_user_id);
+        // $id = $this->di->get("session")->get($active_userId);
         $this->form->create(
             [
                 "id" => __CLASS__,
             ],
             [
-                "user_id" => [
+                "userId" => [
                     "type"        => "hidden",
                     "value"       => "$user"
                 ],
 
-                "question_id" => [
+                "questionId" => [
                     "type"        => "hidden",
                     "value"       => "$question"
                 ],
@@ -63,16 +63,16 @@ class PostAnswerForm extends FormModel
     public function callbackSubmit()
     {
         // Get values from the submitted form
-        $user_id       = $this->form->value("user_id");
-        $question_id   = $this->form->value("question_id");
-        $content       = $this->form->value("answer");
+        $userId       = $this->form->value("userId");
+        $questionId   = $this->form->value("questionId");
+        $content      = $this->form->value("answer");
 
 
         // Save to database
         $answer = new Answer();
         $answer->setDb($this->di->get("dbqb"));
-        $answer->user_id = $user_id;
-        $answer->question_id = $question_id;
+        $answer->userId = $userId;
+        $answer->questionId = $questionId;
         $answer->content = $content;
 
         try {

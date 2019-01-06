@@ -10,10 +10,10 @@
 DROP TABLE IF EXISTS Comment;
 CREATE TABLE Comment (
     "id" INTEGER PRIMARY KEY NOT NULL,
-    "user_id" INTEGER NOT NULL,
-    "answer_id" INTEGER,
-    "question_id" INTEGER,
+    "userId" INTEGER NOT NULL,
+    "answerId" INTEGER,
+    "questionId" INTEGER,
     "content" TEXT,
-    FOREIGN KEY(answer_id) REFERENCES Answer(id),
-    FOREIGN KEY(question_id) REFERENCES Question(id)
+    FOREIGN KEY(answerId) REFERENCES Answer(id),
+    FOREIGN KEY(questionId) REFERENCES Question(id)
 );

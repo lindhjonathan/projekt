@@ -62,15 +62,15 @@ class UserLoginForm extends FormModel
         $res = $user->verifyPassword($acronym, $password);
 
         if (!$res) {
-           $this->form->rememberValues();
-           $this->form->addOutput("User or password did not match.");
-           return false;
+            $this->form->rememberValues();
+            $this->form->addOutput("User or password did not match.");
+            return false;
         }
 
         $session = $this->di->get("session");
-        $session->set("user_logged_in", true);
-        $session->set("active_user", $user->acronym);
-        $session->set("active_user_id", $user->id);
+        $session->set("userLoggedIn", true);
+        $session->set("activeUser", $user->acronym);
+        $session->set("activeUserId", $user->id);
 
 
         $this->form->addOutput("User " . $user->acronym . " logged in.");

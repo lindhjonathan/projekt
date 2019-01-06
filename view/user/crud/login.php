@@ -4,7 +4,7 @@ namespace Anax\View;
 
 // Prepare classes
 $items = isset($items) ? $items : null;
-$active_user = isset($active_user) ? $active_user : null;
+$activeUser = isset($activeUser) ? $activeUser : null;
 
 // Create urls for navigation
 $urlToCreate = url("user/create");
@@ -16,11 +16,11 @@ $urlToStart = url("index.php");
 
 <?= $content ?>
 
-<?php if ($user_logged_in) : ?>
+<?php if ($userLoggedIn) : ?>
     <p>
         <a href="<?= $urlToStart ?>">Back to start page</a>
     </p>
-<?php
+    <?php
     return;
 endif;
 ?>

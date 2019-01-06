@@ -17,7 +17,7 @@ class Checker
     public function loginStatus($di) : bool
     {
         $session = $di->get("session");
-        if($session->get("user_logged_in") == false) {
+        if (($session->get("userLoggedIn") == false) || ($session->get("userLoggedIn") == null)){
             return false;
         }
         return true;
@@ -26,16 +26,16 @@ class Checker
     /**
      * Get user acronym from session if exists
      *
-     * @param string email
+     * @param object di
      * @return string
      */
     public function getUser($di) : string
     {
         $session = $di->get("session");
-        if(!$session->has("active_user")) {
-            return false;
+        if (!$session->has("activeUser")) {
+            return "null";
         }
-        return $session->get("active_user");
+        return $session->get("activeUser");
     }
 
     /**
@@ -47,9 +47,9 @@ class Checker
     public function getUserId($di) : string
     {
         $session = $di->get("session");
-        if(!$session->has("active_user_id")) {
-            return false;
+        if (!$session->has("activeUserId")) {
+            return "null";
         }
-        return $session->get("active_user_id");
+        return $session->get("activeUserId");
     }
 }
