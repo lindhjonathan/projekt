@@ -56,11 +56,11 @@ $countedTags = array_count_values($allTags);
             if ($key == $user->name) {
                 $id = $user->id;
             } ?>
-            <li class="listCell" style="width: 100%;">
-                <a class="nostyle" href="<?= url("user/profile/$id") ?>"><span><?= $key ?></span></a>
-                <div style="float: right;"><?= $value ?></div>
-            </li>
         <?php endforeach; ?>
+        <li class="listCell" style="width: 100%;">
+            <a class="nostyle" href="<?= url("user/profile/$id") ?>"><span><?= $key ?></span></a>
+            <div style="float: right;"><?= $value ?></div>
+        </li>
     <?php endforeach; ?>
     </ul>
 </div>

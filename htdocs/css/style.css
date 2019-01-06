@@ -109,6 +109,11 @@ button:hover {
     color: #424970;
 }
 
+a:visited {
+    text-decoration: none;
+    color: #424970;
+}
+
 /**
  * Question, Answer, Comment general styling
  *

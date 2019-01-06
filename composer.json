@@ -1,6 +1,12 @@
 {
-    "name" : "anax/noname",
-    "description": "A me page for the ramverk1 course.",
+    "name" : "jodn14/projekt",
+    "description": "Projekt for dbwebb course ramverk1",
+    "authors": [
+        {
+            "name": "Jonathan Lindh",
+            "email": "lindh.jonathan@gmail.com"
+        }
+    ],
     "license": "MIT",
     "minimum-stability": "beta",
     "prefer-stable": true,
