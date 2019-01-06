@@ -12,8 +12,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Anax\\": "src/",
-            "Jodn14\\": "src/"
+            "Anax\\": "src/"
         }
     },
     "require": {

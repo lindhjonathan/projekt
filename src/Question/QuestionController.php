@@ -1,20 +1,18 @@
 <?php
 
-namespace Jodn14\Question;
+namespace Anax\Question;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
-use Jodn14\User\HTMLForm\CreateQuestionForm;
-use Jodn14\User\HTMLForm\DeleteUserForm;
-use Jodn14\Question\HTMLForm\PostQuestionForm;
-use Jodn14\Question\HTMLForm\PostAnswerForm;
-use Jodn14\Question\HTMLForm\PostAnswerCommentForm;
-use Jodn14\Question\HTMLForm\PostQuestionCommentForm;
-use Jodn14\Models\Gravatar;
-use Jodn14\Models\Checker;
-use Jodn14\User\User;
-use Jodn14\Question\Comment;
-use Jodn14\Question\Answer;
+use Anax\User\HTMLForm\CreateQuestionForm;
+use Anax\User\HTMLForm\DeleteUserForm;
+use Anax\Question\HTMLForm\PostQuestionForm;
+use Anax\Question\HTMLForm\PostAnswerForm;
+use Anax\Question\HTMLForm\PostAnswerCommentForm;
+use Anax\Question\HTMLForm\PostQuestionCommentForm;
+use Anax\Models\Gravatar;
+use Anax\Models\Checker;
+use Anax\User\User;
 
 /**
  * A sample controller to show how a controller class can be implemented.

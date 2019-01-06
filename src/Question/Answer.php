@@ -1,6 +1,6 @@
 <?php
 
-namespace Jodn14\Question;
+namespace Anax\Question;
 
 use Anax\DatabaseActiveRecord\ActiveRecordModel;
 

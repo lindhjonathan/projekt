@@ -52,11 +52,11 @@ $countedTags = array_count_values($allTags);
     <ul class="liststyle" style="width: 27%; padding-left: 20px;">
         <li class="listHeader" style="width: 100%;"><h3>Active Users</h3></li>
     <?php foreach ($countedUsers as $key => $value) :
-        foreach ($users as $user) :
+        foreach ($users as $user) {
             if ($key == $user->name) {
                 $id = $user->id;
-            } ?>
-        <?php endforeach; ?>
+            }
+        } ?>
         <li class="listCell" style="width: 100%;">
             <a class="nostyle" href="<?= url("user/profile/$id") ?>"><span><?= $key ?></span></a>
             <div style="float: right;"><?= $value ?></div>

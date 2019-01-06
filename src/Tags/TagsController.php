@@ -1,13 +1,13 @@
 <?php
 
-namespace Jodn14\Tags;
+namespace Anax\Tags;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
-use Jodn14\Models\Gravatar;
-use Jodn14\Models\Checker;
-use Jodn14\User\User;
-use Jodn14\Question\Question;
+use Anax\Models\Gravatar;
+use Anax\Models\Checker;
+use Anax\User\User;
+use Anax\Question\Question;
 
 /**
  * A sample controller to show how a controller class can be implemented.

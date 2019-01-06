@@ -7,7 +7,7 @@ return [
         [
             "info" => "Controller for user.",
             "mount" => "user",
-            "handler" => "\Jodn14\User\UserController",
+            "handler" => "\Anax\User\UserController",
         ],
     ]
 ];

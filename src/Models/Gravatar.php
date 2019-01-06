@@ -1,6 +1,6 @@
 <?php
 
-namespace Jodn14\Models;
+namespace Anax\Models;
 
 /**
  * Model for getting gravatar profile picture

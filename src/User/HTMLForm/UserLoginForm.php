@@ -1,10 +1,10 @@
 <?php
 
-namespace Jodn14\User\HTMLForm;
+namespace Anax\User\HTMLForm;
 
 use Anax\HTMLForm\FormModel;
 use Psr\Container\ContainerInterface;
-use Jodn14\User\User;
+use Anax\User\User;
 
 /**
  * Example of FormModel implementation.

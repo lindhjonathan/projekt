@@ -7,7 +7,7 @@ return [
         [
             "info" => "Controller for tags.",
             "mount" => "tags",
-            "handler" => "\Jodn14\Tags\TagsController",
+            "handler" => "\Anax\Tags\TagsController",
         ],
     ]
 ];

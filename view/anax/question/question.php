@@ -49,15 +49,15 @@ endif;
 <?php foreach ($comments as $comment) : ?>
     <?php if ($question->id == $comment->questionId) : ?>
         <div class="objectCell comment">
-        <?php foreach ($users as $user) :
-            if ($user->id == $comment->userId) : ?>
+        <?php foreach ($users as $user) : ?>
+            <?php if ($user->id == $comment->userId) : ?>
                 <table class="imagefield">
                     <td class="tablerow">
                         <img style="margin: 4px; min-width: 32px;" src="<?= $gravatar->getGravatar($user->email) ?>" alt="User Picture" width="32" height="32">
                     </td>
                     <td class="tablerow"><p>Commented: </p></td>
-            <?php endif; ?>
-        <?php endforeach; ?>
+            <?php endif ?>
+        <?php endforeach ?>
                     <td class="tablerow"><p><?= $this->di->get("textfilter")->markdown($comment->content); ?></p></td>
                 </table>
             </div>
@@ -69,8 +69,8 @@ endif;
     <?php foreach ($answers as $answer) : ?>
         <?php if ($answer->questionId == $question->id) : ?>
             <div class="objectCell answer">
-            <?php foreach ($users as $user) :
-                if ($user->id == $answer->userId) : ?>
+            <?php foreach ($users as $user) : ?>
+                <?php if ($user->id == $answer->userId) : ?>
                     <table class="imagefield">
                         <td class="tablerow">
                             <img style="margin: 4px;" src="<?= $gravatar->getGravatar($user->email) ?>" alt="User Picture" width="32" height="32">
@@ -90,8 +90,8 @@ endif;
             <?php foreach ($comments as $comment) : ?>
                 <?php if ($answer->id == $comment->answerId) : ?>
                     <div class="objectCell comment">
-                    <?php foreach ($users as $user) :
-                        if ($user->id == $comment->userId) : ?>
+                    <?php foreach ($users as $user) : ?>
+                        <?php if ($user->id == $comment->userId) : ?>
                             <table class="imagefield">
                                 <td class="tablerow">
                                     <img style="margin: 4px; min-width: 32px;" src="<?= $gravatar->getGravatar($user->email) ?>" alt="User Picture" width="32" height="32">

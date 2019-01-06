@@ -1,17 +1,17 @@
 <?php
 
-namespace Jodn14\User;
+namespace Anax\User;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
-use Jodn14\User\HTMLForm\UserLoginForm;
-use Jodn14\User\HTMLForm\CreateUserForm;
-use Jodn14\User\HTMLForm\UpdateUserForm;
-use Jodn14\User\HTMLForm\DeleteUserForm;
-use Jodn14\Models\Gravatar;
-use Jodn14\Models\Checker;
-use Jodn14\Question\Question;
-use Jodn14\Question\Answer;
+use Anax\User\HTMLForm\UserLoginForm;
+use Anax\User\HTMLForm\CreateUserForm;
+use Anax\User\HTMLForm\UpdateUserForm;
+use Anax\User\HTMLForm\DeleteUserForm;
+use Anax\Models\Gravatar;
+use Anax\Models\Checker;
+use Anax\Question\Question;
+use Anax\Question\Answer;
 
 /**
  * A sample controller to show how a controller class can be implemented.

@@ -1,11 +1,11 @@
 <?php
 
-namespace Jodn14\Page;
+namespace Anax\Page;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
-use Jodn14\User\User;
-use Jodn14\Question\Question;
+use Anax\User\User;
+use Anax\Question\Question;
 
 /**
  * A sample controller to show how a controller class can be implemented.

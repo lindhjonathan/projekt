@@ -1,6 +1,6 @@
 <?php
 
-namespace Jodn14\Models;
+namespace Anax\Models;
 
 /**
  * Model for getting gravatar profile picture
@@ -17,7 +17,7 @@ class Checker
     public function loginStatus($di) : bool
     {
         $session = $di->get("session");
-        if (($session->get("userLoggedIn") == false) || ($session->get("userLoggedIn") == null)){
+        if (($session->get("userLoggedIn") == false) || ($session->get("userLoggedIn") == null)) {
             return false;
         }
         return true;

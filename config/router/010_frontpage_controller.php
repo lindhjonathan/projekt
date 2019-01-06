@@ -7,7 +7,7 @@ return [
         [
             "info" => "Frontpage",
             "path" => "",
-            "handler" => "\Jodn14\Page\FrontpageController",
+            "handler" => "\Anax\Page\FrontpageController",
         ],
     ]
 ];
