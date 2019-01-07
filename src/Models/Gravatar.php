@@ -7,6 +7,10 @@ namespace Anax\Models;
  */
 class Gravatar
 {
+    /**
+     * @var email Email to retrieve gravatar picture
+     */
+    private $email;
 
     /**
      * calls gravatar with email

@@ -113,7 +113,7 @@ class Navbar
 
                 // Check if the current menuitem is selected
                 if (!isset($item["url"])) {
-                    var_dump($item);
+                    print_r($item);
                 }
                 $selected = $this->check($item["url"])
                     ? "selected "

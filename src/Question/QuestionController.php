@@ -4,8 +4,6 @@ namespace Anax\Question;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
-use Anax\User\HTMLForm\CreateQuestionForm;
-use Anax\User\HTMLForm\DeleteUserForm;
 use Anax\Question\HTMLForm\PostQuestionForm;
 use Anax\Question\HTMLForm\PostAnswerForm;
 use Anax\Question\HTMLForm\PostAnswerCommentForm;

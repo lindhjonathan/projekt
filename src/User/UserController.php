@@ -7,7 +7,6 @@ use Anax\Commons\ContainerInjectableTrait;
 use Anax\User\HTMLForm\UserLoginForm;
 use Anax\User\HTMLForm\CreateUserForm;
 use Anax\User\HTMLForm\UpdateUserForm;
-use Anax\User\HTMLForm\DeleteUserForm;
 use Anax\Models\Gravatar;
 use Anax\Models\Checker;
 use Anax\Question\Question;
