@@ -12,6 +12,7 @@ use Anax\Models\Gravatar;
 use Anax\Models\Checker;
 use Anax\Question\Question;
 use Anax\Question\Answer;
+use Anax\User\User;
 
 /**
  * A sample controller to show how a controller class can be implemented.
@@ -52,7 +53,7 @@ class UserController implements ContainerInjectableInterface
         $user = new User();
         $user->setDb($this->di->get("dbqb"));
 
-        $page->add("user/crud/users", [
+        $page->add("anax/user/crud/users", [
             "items" => $user->findAll(),
             "activeUser" => $this->checker->loginStatus($this->di),
             "activeUserId" => $this->checker->getUserId($this->di),
@@ -76,7 +77,7 @@ class UserController implements ContainerInjectableInterface
         $form = new UserLoginForm($this->di);
         $form->check();
 
-        $page->add("user/crud/login", [
+        $page->add("anax/user/crud/login", [
             "content" => $form->getHTML(),
             "userLoggedIn" => $this->checker->loginStatus($this->di),
         ]);
@@ -99,7 +100,7 @@ class UserController implements ContainerInjectableInterface
         $form = new CreateUserForm($this->di);
         $form->check();
 
-        $page->add("user/crud/create", [
+        $page->add("anax/user/crud/create", [
             "form" => $form->getHTML(),
         ]);
 
@@ -119,7 +120,7 @@ class UserController implements ContainerInjectableInterface
         if ($this->checker->loginStatus($this->di) == null) {
             $page = $this->di->get("page");
 
-            $page->add("user/crud/landing", [
+            $page->add("anax/user/crud/landing", [
             ]);
 
             return $page->render([
@@ -130,7 +131,7 @@ class UserController implements ContainerInjectableInterface
         $form = new UpdateUserForm($this->di, $id);
         $form->check();
 
-        $page->add("user/crud/update", [
+        $page->add("anax/user/crud/update", [
             "form" => $form->getHTML(),
             "id" => $id,
         ]);
@@ -152,7 +153,7 @@ class UserController implements ContainerInjectableInterface
             if ($this->checker->loginStatus($this->di) == null) {
                 $page = $this->di->get("page");
 
-                $page->add("user/crud/landing", [
+                $page->add("anax/user/crud/landing", [
                 ]);
 
                 return $page->render([
@@ -173,7 +174,7 @@ class UserController implements ContainerInjectableInterface
         $answers = new Answer();
         $answers->setDb($this->di->get("dbqb"));
 
-        $page->add("user/crud/profile", [
+        $page->add("anax/user/crud/profile", [
             "info" => $user,
             "profilePicture" => $profilePicture,
             "activeUser" => $this->checker->loginStatus($this->di),
@@ -201,7 +202,7 @@ class UserController implements ContainerInjectableInterface
         $session->delete("activeUserId");
         $page = $this->di->get("page");
 
-        $page->add("user/crud/logout", [
+        $page->add("anax/user/crud/logout", [
         ]);
 
         return $page->render([
@@ -218,7 +219,7 @@ class UserController implements ContainerInjectableInterface
     {
         $page = $this->di->get("page");
 
-        $page->add("user/crud/landing", [
+        $page->add("anax/user/crud/landing", [
         ]);
 
         return $page->render([

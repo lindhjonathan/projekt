@@ -28,7 +28,7 @@ class FrontpageController implements ContainerInjectableInterface
         $user = new User();
         $user->setDb($this->di->get("dbqb"));
 
-        $page->add("frontpage/index", [
+        $page->add("anax/frontpage/front", [
             "questions" => $question->findAll(),
             "users" => $user->findAll(),
         ]);

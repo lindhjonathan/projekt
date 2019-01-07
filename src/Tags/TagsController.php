@@ -48,7 +48,7 @@ class TagsController implements ContainerInjectableInterface
         $question = new Question();
         $question->setDb($this->di->get("dbqb"));
 
-        $page->add("tags/view-all", [
+        $page->add("anax/tags/view-all", [
             "questions" => $question->findAll(),
         ]);
 
@@ -69,7 +69,7 @@ class TagsController implements ContainerInjectableInterface
         $questions = new Question();
         $questions->setDb($this->di->get("dbqb"));
 
-        $page->add("tags/tag", [
+        $page->add("anax/tags/tag", [
             "questions" => $questions->findAll(),
             "tag" => $tag,
         ]);

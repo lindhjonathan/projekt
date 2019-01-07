@@ -51,7 +51,7 @@ class QuestionController implements ContainerInjectableInterface
         $question = new Question();
         $question->setDb($this->di->get("dbqb"));
 
-        $page->add("question/questions", [
+        $page->add("anax/question/questions", [
             "items" => $question->findAll(),
             "activeUser" => $this->checker->loginStatus($this->di),
         ]);
@@ -73,7 +73,7 @@ class QuestionController implements ContainerInjectableInterface
         if ($this->checker->loginStatus($this->di) == null) {
             $page = $this->di->get("page");
 
-            $page->add("user/crud/landing", [
+            $page->add("anax/user/crud/landing", [
             ]);
 
             return $page->render([
@@ -89,7 +89,7 @@ class QuestionController implements ContainerInjectableInterface
         $form = new PostQuestionForm($this->di, $user);
         $form->check();
 
-        $page->add("question/post", [
+        $page->add("anax/question/post", [
             "form" => $form->getHTML(),
         ]);
 
@@ -122,7 +122,7 @@ class QuestionController implements ContainerInjectableInterface
         $comments = new Comment();
         $comments->setDb($this->di->get("dbqb"));
 
-        $page->add("question/question", [
+        $page->add("anax/question/question", [
             "question" => $question,
             "asker" => $asker,
             "tags" => explode(" ", $question->tags),
@@ -148,7 +148,7 @@ class QuestionController implements ContainerInjectableInterface
         if ($this->checker->loginStatus($this->di) == false) {
             $page = $this->di->get("page");
 
-            $page->add("user/crud/landing", [
+            $page->add("anax/user/crud/landing", [
             ]);
 
             return $page->render([
@@ -165,7 +165,7 @@ class QuestionController implements ContainerInjectableInterface
         $form = new PostAnswerForm($this->di, $session->get("activeUserId"), $id);
         $form->check();
 
-        $page->add("question/answer", [
+        $page->add("anax/question/answer", [
             "form" => $form->getHTML(),
             "question" => $question,
         ]);
@@ -186,7 +186,7 @@ class QuestionController implements ContainerInjectableInterface
         $page = $this->di->get("page");
 
         if ($this->checker->loginStatus($this->di) == null) {
-            $page->add("user/crud/landing", [
+            $page->add("anax/user/crud/landing", [
             ]);
 
             return $page->render([
@@ -201,7 +201,7 @@ class QuestionController implements ContainerInjectableInterface
         $form = new PostAnswerCommentForm($this->di, $id);
         $form->check();
 
-        $page->add("question/acomment", [
+        $page->add("anax/question/acomment", [
             "form" => $form->getHTML(),
             "answer" => $answer,
         ]);
@@ -222,7 +222,7 @@ class QuestionController implements ContainerInjectableInterface
         $page = $this->di->get("page");
 
         if ($this->checker->loginStatus($this->di) == null) {
-            $page->add("user/crud/landing", [
+            $page->add("anax/user/crud/landing", [
             ]);
 
             return $page->render([
@@ -237,7 +237,7 @@ class QuestionController implements ContainerInjectableInterface
         $form = new PostQuestionCommentForm($this->di, $id);
         $form->check();
 
-        $page->add("question/qcomment", [
+        $page->add("anax/question/qcomment", [
             "form" => $form->getHTML(),
             "question" => $question,
         ]);
