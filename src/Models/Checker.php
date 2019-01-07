@@ -8,11 +8,6 @@ namespace Anax\Models;
 class Checker
 {
     /**
-     * @var di Dependency Injections
-     */
-    private $di;
-
-    /**
      * Check session for an active user
      *
      * @param object di

@@ -1,7 +1,7 @@
 Jodn14 projekt Ramverk1
 ==================================
 
-Code and build Status (Tavis-ci and Scrutinizer)
+Code and build Status (Travis-ci and Scrutinizer)
 ----------------------------------
 [![Build Status](https://travis-ci.com/lindhjonathan/projekt.svg?branch=master)](https://travis-ci.com/lindhjonathan/projekt)
 
