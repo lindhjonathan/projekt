@@ -193,14 +193,15 @@ a:visited {
     margin-left: 0.4rem;
     margin-bottom: 0.4rem;
     border-left: 2px solid #999;
-    width: 16rem;
+    width: 100%;
+    padding-right: 0.5rem;
 }
 
 .listHeader {
     padding: 0.4rem;
     margin-left: 0.4rem;
     margin-bottom: 0.4rem;
-    width: 16rem;
+    width: 100%;
 }
 
 .listHeader h3 {
@@ -266,7 +267,7 @@ fieldset {
 .outer-wrap-header {
     max-width: 100%;
     min-height: 16em;
-    background: url(../img/header.jpg);
+    background: url(../img/header-white-upsidedown.png);
 }
 
 .outer-wrap-header {

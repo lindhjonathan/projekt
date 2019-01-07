@@ -1,7 +1,7 @@
 Jodn14 projekt Ramverk1
 ==================================
 
-Code and build Status
+Code and build Status (Tavis-ci and Scrutinizer)
 ----------------------------------
 [![Build Status](https://travis-ci.com/lindhjonathan/projekt.svg?branch=master)](https://travis-ci.com/lindhjonathan/projekt)
 
@@ -12,30 +12,43 @@ Code and build Status
 Table of content
 ------------------------------------
 
- * [Install and setup Anax](#Install-and-setup-Anax)
+ * [Install and setup](#Install-and-setup-Database)
  * [Dependency](#Dependency)
  * [License](#License)
 
-Install and setup Anax
+Install and setup Database
 ------------------------------------
-
-You need a Anax installation, you can create a sample Anax installation, using the scaffolding utility [`anax-cli`](https://github.com/canax/anax-cli).
-
-Scaffold a sample Anax installation `anax-ramverk1-me` into the directory `projekt`.
+Clone the existing GitHub repo by copying the following command into your terminal.
 
 ```bash
-anax create projekt ramverk1-me-v2
-cd projekt
+git clone https://github.com/lindhjonathan/projekt jodn14projekt
+
+cd jodn14projekt
 ```
 
-Point your webserver to `projekt/htdocs` and Anax should display a Home-page.
+Install dependencies with composer.
 
+```bash
+composer install
+```
+
+Now to create and add tables to the database.
+
+```bash
+mkdir data
+touch data/db.sqlite
+chmod 777 data/*
+
+sqlite3 data/db.sqlite < sql/ddl/setup_sqlite.sql
+```
+Now point your webserver to jodn14projekt/htdocs and may I suggest you start your
+lookaround by creating a new user.
 
 Dependency
 ------------------
 
-This is an implementation of the Anax framework.
-It should not require any dependencies.
+This application is an implementation of the Anax framework.
+It should not require any dependencies other than those specified in the composer.json.
 
 License
 ------------------
